@@ -4,8 +4,11 @@
   "description": "contact manager app",
   "main": "server.js",
   "scripts": {
-	"start": "node server.js",
-	"server": "nodemon server.js"
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "clientinstall": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "onkar soundankar",
   "license": "ISC",
@@ -15,10 +18,13 @@
     "express": "^4.17.1",
     "express-validator": "^6.8.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.11.8"
+    "mongoose": "^5.11.8",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.2",
     "concurrently": "^5.3.0",
     "nodemon": "^2.0.6"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
